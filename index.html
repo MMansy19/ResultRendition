@@ -11,12 +11,6 @@
         background-color: #1a202c;
         color: #cbd5e0;
       }
-      /* .toggle {
-        display: flex;
-        gap: 10rem;
-        margin: auto;
-      } */
-
       .toggle__checkbox {
         display: none;
       }
@@ -51,6 +45,9 @@
       .toggle__checkbox:checked + .toggle__label::before {
         transform: translateX(1.1rem);
         background-color: green;
+      }
+      .button{
+        transition:.5s;
       }
     </style>
     <!-- displays site properly based on user's device -->
@@ -146,7 +143,7 @@
             </li>
           </ul>
           <button
-            class="font-bold text-neutral-50 text-xl bg-blue-500 hover:bg-blue-900 rounded-full my-2 min-w-full py-3 mt-10"
+            class="button font-bold text-neutral-50 text-xl bg-blue-500 hover:bg-blue-900 rounded-full my-2 min-w-full py-3 mt-10"
           >
             Continue
           </button>
