@@ -1,47 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Add your dark mode styles here */
+      body.dark-mode {
+        background-color: #1a202c;
+        color: #cbd5e0;
+      }
+      /* .toggle {
+        display: flex;
+        gap: 10rem;
+        margin: auto;
+      } */
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Results summary component</title>
+      .toggle__checkbox {
+        display: none;
+      }
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+      .toggle__label {
+        position: relative;
+        display: block;
+        background-color: black;
+        border-radius: 4.5rem;
+        width: 2.7rem;
+        height: 1.5rem;
+        padding: 0.3rem 0.4rem;
+        cursor: pointer;
+        transition: 0.5s;
+      }
 
-  Your Result
-  76
-  of 100
+      .toggle__label::before {
+        content: "";
+        position: absolute;
+        width: 0.9rem;
+        height: 0.9rem;
+        display: block;
+        border-radius: 50%;
+        background-color: white;
+        transition: 0.5s;
+      }
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
+      .toggle__checkbox:checked + .toggle__label {
+        background-color: white;
+      }
 
-  Reaction
-  80 / 100
+      .toggle__checkbox:checked + .toggle__label::before {
+        transform: translateX(1.1rem);
+        background-color: green;
+      }
+    </style>
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  Memory
-  92 / 100
+    <title>Results summary component</title>
 
-  Verbal
-  61 / 100
+    <!-- Feel free to remove these styles or customize in your own stylesheet 👍 -->
+  </head>
+  <body
+    class="bg-gray-100 dark-mode:bg-gray-800 dark-mode:text-white transition-colors duration-500 sm:py-12"
+  >
+    <div
+      class="flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12"
+    >
+      <div class="toggle flex items-center justify-center mb-5">
+        <h3 class="toggle__title mr-2">Dark Mode</h3>
+        <label
+          for="darkModeToggle"
+          class="mr-2 toggle__label"
+          role="switch"
+          aria-checked="false"
+          tabindex="0"
+        >
+        </label>
 
-  Visual
-  72 / 100
+        <input
+          type="checkbox"
+          name="toggle checkbox"
+          id="darkModeToggle"
+          class="toggle__checkbox form-checkbox h-5 w-5 text-indigo-600 transition duration-150 ease-in-out"
+        />
+      </div>
 
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+      <div
+        class="flex flex-col sm:flex-row text-sm rounded-3xl relative shadow-xl ring-1 ring-gray-900/5 mx-auto max-w-4xl"
+      >
+        <!-- <div class="flex space-y-6 py-8 text-base leading-7 text-gray-600"> -->
+        <div
+          class="text-zinc-400 flex flex-col justify-center text-center bg-gradient-to-b from-blue-400 via-blue-700 to-blue-500 rounded-3xl px-10 py-10 max-w-full sm:max-w-xs"
+        >
+          <div class="my-5 text-lg font-bold">Your Result</div>
+          <div
+            class="flex flex-col rounded-full bg-blue-800 text-center mx-auto py-10 px-12"
+          >
+            <span class="text-neutral-50 text-7xl">76</span>
+            of 100
+          </div>
+          <div class="text-neutral-50 font-bold text-3xl my-5">Great</div>
+          You scored higher than 65% of the people who have taken these tests.
+        </div>
+
+        <div class="text-zinc-400 text-lg px-10">
+          <ul class="flex flex-col gap-3">
+            <h1
+              class="my-5 font-bold text-2xl text-blue-600 sm:text-left text-center"
+            >
+              Summary
+            </h1>
+            <li class="flex flex-row gap-3 bg-red-100 rounded-xl p-2">
+              <img src="./assets/images/icon-reaction.svg" alt="" />
+              <span class="text-red-600"> Reaction</span>
+              <div class="ml-auto">
+                <span class="text-blue-950 font-bold">80</span> / 100
+              </div>
+            </li>
+            <li class="flex flex-row gap-3 bg-yellow-100 rounded-xl p-2">
+              <img src="./assets/images/icon-memory.svg" alt="" />
+              <span class="text-yellow-600"> Memory</span>
+              <div class="ml-auto">
+                <span class="text-blue-950 font-bold">92</span> / 100
+              </div>
+            </li>
+            <li class="flex flex-row gap-3 bg-green-100 rounded-xl p-2">
+              <img src="./assets/images/icon-verbal.svg" alt="" />
+              <span class="text-green-600"> Verbal</span>
+              <div class="ml-auto">
+                <span class="text-blue-950 font-bold">61</span> / 100
+              </div>
+            </li>
+            <li class="flex flex-row gap-3 bg-purple-100 rounded-xl p-2">
+              <img src="./assets/images/icon-visual.svg" alt="" />
+              <span class="text-purple-600"> Visual</span>
+              <div class="ml-auto">
+                <span class="text-blue-950 font-bold">72</span> / 100
+              </div>
+            </li>
+          </ul>
+          <button
+            class="font-bold text-neutral-50 text-xl bg-blue-500 hover:bg-blue-900 rounded-full my-2 min-w-full py-3 mt-10"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-center mt-20 text-zinc-400">
+        <a href="https://mahmoud-mansy-portfolio.netlify.app/">
+          © 1/2024 by Mahmoud Mansy</a
+        >
+      </div>
+    </div>
+
+    <script>
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const body = document.body;
+
+      function toggleDarkMode() {
+        const darkModeEnabled = darkModeToggle.checked;
+        body.classList.toggle("dark-mode", darkModeEnabled);
+        localStorage.setItem(
+          "darkMode",
+          darkModeEnabled ? "enabled" : "disabled"
+        );
+      }
+
+      // Check the initial dark mode preference
+      if (localStorage.getItem("darkMode") === "enabled") {
+        toggleDarkMode();
+      }
+
+      // Toggle dark mode on checkbox change
+      darkModeToggle.addEventListener("change", toggleDarkMode);
+    </script>
+  </body>
 </html>
