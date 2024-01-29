@@ -8,8 +8,9 @@
 
 ### Mobile Design
 
-![Design preview for the Results summary component coding challenge](./design/mobile-design.jpg)
-
+<div align="center">
+  <img src="./design/mobile-design.jpg" alt="Design preview for the Results summary component coding challenge" />
+</div>
 ## Welcome! 👋
 
 Thanks for checking out this front-end coding challenge.
